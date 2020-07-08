@@ -1,6 +1,9 @@
 
 echo "step 1 : 整体查看"
 
+echo "查询网卡带宽"
+ethtool bond0 | grep Speed
+
 netstat -s
 
 echo "step 2 : sar -n DEV 1
@@ -13,5 +16,8 @@ rxcmp/s 和 txcmp/s 分别是接收和发送的压缩数据包数，单位是包
 
 sar -n DEV 1
 
-echo "查询网卡带宽"
-ethtool bond0 | grep Speed
+nethogs
+iftop -n
+echo "yum install iptraf -y"
+iptraf-ng
+
